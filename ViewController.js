@@ -51,14 +51,14 @@ var ViewController = function() {
         console.log("_postProcess");
     };
 
-    return { //just gave my method a closure!
+    return { 
 
       Process : function(viewName){
         _viewName = viewName;
 
         _preProcess(_viewName);
-        _initView(_viewName);
         _loadView(_viewName);
+        _initView(_viewName);
         _postProcess(_viewName);
 
       },
