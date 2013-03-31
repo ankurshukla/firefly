@@ -28,7 +28,7 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   //if you don't inherit from it or copy from it.
   var single = {};
   //Singleton Implementations
-  //Declaring as a Global Object,,,,you are being judged!
+  //Declaring as a Global Object...you are being judged!
   
   
   var Logger = function() {
