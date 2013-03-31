@@ -51,10 +51,12 @@ var ViewController = function() {
         console.log("_postProcess");
     };
 
-    return { 
-
-      Process : function(viewName){
-        _viewName = viewName;
+    return { //implementation using module pattern
+    
+      //priviliged member function
+      //having acccess to private members
+      Process : function(viewName){ 
+        _viewName = viewName;       
 
         _preProcess(_viewName);
         _loadView(_viewName);
@@ -88,6 +90,7 @@ var ViewController = function() {
     var viewName = "test-view";
     
     var myViewController = ViewController(); //just gave it a closure!
+    //myViewController is now a module that can be accessed globally
 
     //providing the interface methods my own myViewController specific implementation
 
