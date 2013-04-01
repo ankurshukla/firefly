@@ -22,11 +22,10 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ****************************************************************************************************************/
 
-(function(){
+var Firefly = firefly = (function(){
 	
 
-
-	window.Firefly = {
+	return {
 
 		test : function() {
 			console.log("There's no place I can be, since I've found Serinity");
@@ -163,7 +162,4 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		}
 
 	};
-
-	//invoking the object to the global scope.
-	window.firefly = firefly =  Firefly;
 })();
