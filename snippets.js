@@ -107,7 +107,7 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     //private variable
     var _private = 'private value';
     var _method = function(){
-      console.log('inside the private method')
+      //console.log('inside the private method')
     };
   
   
@@ -129,12 +129,12 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           //so that MODULE get the retObject assigned
           //which has all the previliged members.
   
-  
+  /******TEST CODE*********************************************************
   //the global variable MODULE here has access to the privileged functions
   
   MODULE.priviligedMethod();
   console.log(MODULE.priviligedAttr);
-  
+  *************************************************************************/
   
   
   //now if you wish to extend the MODULE variable
@@ -294,4 +294,10 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       this.length--;
     }
   
+ };
+
+
+ function MyArray(){
+  this.size = 0;
+  this.value = null;
  };
