@@ -156,3 +156,135 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   MODULE.priviligedMethod();
   console.log(MODULE.priviligedAttr);
   MODULE.anotherMethod();
+  
+  /*************************************************
+   *     LINKED LIST IMPLEMENTATION                *
+   * ***********************************************/
+  //node element 
+  function Node() {
+    this.data = null;
+    this.next = null;
+  };
+
+  //constructor function
+  function LinkedList(){
+    //will keep a handle to the first, and last element
+    //of the linked list along with its length
+    this.firstNode = null;
+    this.lastNode = null;
+    this.length = 0;
+  };
+
+  LinkedList.prototype.add = function(data){
+    var newNode = new Node();
+    newNode.data = data;
+    //if the linked list is empty
+    if(this.firstNode === null) {
+      this.firstNode = newNode;
+      this.lastNode = newNode;
+    } else {//add to the 'next' available node
+      this.lastNode.next = newNode;
+      this.lastNode = newNode;
+    }
+
+    this.length++;
+
+  };
+
+  LinkedList.prototype.traverse = function() {
+
+    if(this.length === 0){
+      return "Linked List doesnt exist";
+    }
+    var tmpNode = this.firstNode;
+
+    for(var i = 0; i< this.length; i++){
+      console.log(tmpNode.data);
+      tmpNode = tmpNode.next;
+    }
+  }
+
+  LinkedList.prototype.find = function(data){
+
+    if(this.length === 0){
+      return " linked list doesnt exist!"
+    };
+
+    if(this.firstNode === data){
+      return firstNode;
+    }
+
+    if(this.lastNode === data){
+      return lastNode;
+    }
+
+    var tmpNode = this.firstNode,
+        nodeFound = false;
+    for(var i=0; i< this.length; i++){
+      
+      if(tmpNode.data === data){
+        nodeFound = true;
+        return tmpNode;
+        break;
+      }else{
+        tmpNode = tmpNode.next;
+      }
+    }
+
+    if(!nodeFound){
+      return "The node was not found in the linked list!";
+    }
+ };
+
+ LinkedList.prototype.delete = function(data){
+    var currNode = this.firstNode,
+        nextNode,
+        nodeDeleted = false;
+
+    if(this.length === 0){
+      return "The Linked List is empty!"
+    };
+
+    if(data === currNode.data){
+      //if only one node in the list
+      if(currNode.next ===  null){
+        this.firstNode.data = null;
+        this.lastNode.data = null;
+        this.length = o;
+
+        return;
+
+      }
+
+      currNode.data = null;
+      currNode = currNode.next;
+      this.firstNode = currNode;
+      return;
+
+    };
+
+    while(true){
+      //if end of the list -> stop!
+      if(currNode.next === null){
+        break;
+      };
+
+      nextNode = currNode.next;
+
+      if(data === nextNode.data){
+
+        var nextAfterNextNode = nextNode.next;
+        currNode.next = nextAfterNextNode;
+
+        nextNode = null;
+        nodeDeleted = true;
+        break;
+      }
+    }
+
+    currNode = currNode.next;
+    if(nodeDeleted){
+      this.length--;
+    }
+  
+ };
