@@ -23,7 +23,10 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ****************************************************************************************************************/
 
 
-  //Singleton
+  /*************************************************
+   *     SINGLETON PATTERN IMPLEMENTATION          *
+   *************************************************/
+
   //since there are no classes in javascript, every object is technically a singleton
   //if you don't inherit from it or copy from it.
   var single = {};
@@ -73,7 +76,7 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     };
   }
   
-  
+  /***** TEST OODE ************************************************
   //using the Logger singleton
   var logger = logFactory();//did i just gave LogFactory a closure?
   //create an instance of the logger
@@ -85,9 +88,12 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   
   //check if the two logger instances are same?
   console.log(a === b); //true
+  *******************************************************************/
 
+  /*************************************************
+   *     MODULE PATTERN IMPLEMENTATION             *
+   *************************************************/
 
-  //Module pattern
   //all variables and functions declared (and executed) inside an anon function 
   // lives and the closure provides state and privacy to the variables and functions.
   //Sometimes we just don't want to use a GLOBAL variable but also want to declare our 
@@ -146,7 +152,7 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   
   })(MODULE);// passing the 'old' MODULE method to the new MODULE.
   
-  
+  /***** TEST CODE ***********************
   console.log(MODULE);
   
   //running the new MODULE
@@ -156,10 +162,11 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   MODULE.priviligedMethod();
   console.log(MODULE.priviligedAttr);
   MODULE.anotherMethod();
+  ****************************************/
   
   /*************************************************
    *     LINKED LIST IMPLEMENTATION                *
-   * ***********************************************/
+   *************************************************/
   //node element 
   function Node() {
     this.data = null;
@@ -281,7 +288,7 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         break;
       }
     }
-
+    
     currNode = currNode.next;
     if(nodeDeleted){
       this.length--;
