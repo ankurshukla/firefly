@@ -296,8 +296,37 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   
  };
 
+/**********************************************************
+ *        SESSION TIMEOUT IMPLEMENTATION FROM JAVASCRIPT  *
+ * ********************************************************/
+ 
 
- function MyArray(){
-  this.size = 0;
-  this.value = null;
- };
+function Session() {}
+
+Session.prototype.init = function() {
+  console.log('inside Session.init()');
+	
+	//capturing all click, touch and keypress events
+	window.addEventListener('touchstart',Timeout,false);
+	window.addEventListener('click',Timeout,false);
+	window.addEventListener('keypress', Timeout, false);
+	
+	function _timeout(){
+		return function() {
+			//implement your logic here to make
+      //a server side call (REST maybe?)
+      //that kills the server side sessiom
+		}	
+	}
+	function Timeout() {
+	console.log('inside goTimeout()');
+		if(typeof(timer) != 'undefined'){
+			console.log("clearing timer");
+			timer = clearTimeout(timer); //reset as soon as something is clicked
+		}
+		timer = setTimeout(_timeout(), 5000 /*test tiemout period in millisec*/);
+	}
+}
+
+var sessionTimeout = new Session();
+sessionTimeout.init();
